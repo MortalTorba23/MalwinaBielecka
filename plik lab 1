@@ -1,0 +1,92 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <math.h>
+#include "winbgi2.h"
+#include "inter.h"
+#include <stdlib.h>
+
+int main()
+{
+    FILE* h, *g;
+    //graphics(220, 220);
+    //line(0,100,100,0);
+    h = fopen("punkty.txt", "w");
+    g = fopen("wielomian.txt", "w");
+    
+
+
+
+    /*int n = 15;
+    double a = -2.0;
+    double b = 2.0;
+    double h = (b - a) / (n - 1);
+    double* x;
+    x = (double*)malloc(n * sizeof(double));
+
+    if (x == NULL) {
+        fprintf(stderr, "malloc: can not allocate x.\n");
+        exit(1);
+    }
+
+    double* y;
+    y = (double*)malloc(n * sizeof(double));
+
+    if (y == NULL) {
+        fprintf(stderr, "malloc: can not allocate x.\n");
+        exit(1);
+    }
+
+    for (int i = 0; i > n; i++) {
+        double pow(2,71)
+        x[i]=2,71
+
+    }
+    */
+    
+
+
+
+
+    double x[3] = { 0, 1, 2 };
+    double y[3] = { 0, 1, 4 };
+
+
+
+    double f, t =-0.5;
+   int N = sizeof(x) / sizeof(x[0]);
+
+    for (int n=0; n < 3; n++) {
+        fprintf(h, "%lf %lf \n", x[n], y[n]);
+    }
+
+
+
+    double dt = 0.1;
+
+    while (t <= 1.1 * x[N - 1])
+    {
+        f = lagrange(x, y, 3, t);
+        fprintf(g, "%lf %lf \n", t, f);
+        t += dt;
+
+    }
+
+
+
+        /* Wyznacz wartosc paraboli dla t = 1.5 */
+        f = lagrange(x, y, 3, t);
+
+        printf("%lf\n",f);
+        fclose(h);
+        fclose(g);
+
+
+        free(x);
+        free(y);
+
+
+
+    wait();
+
+    return 0;
+}
